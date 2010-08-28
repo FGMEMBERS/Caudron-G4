@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+
+    <author>BARANGER Emmanuel (3D/FDM)</author>
+    <aircraft-version>0.1</aircraft-version>
+    <status>Alpha</status>
+
+    <fuel-fraction>0.8</fuel-fraction>
+
+    <startup>
+     <splash-texture>Aircraft/Caudron-G4/g4-splash.png</splash-texture>
+    </startup>
+
+    <sound>
+      <path>Aircraft/Caudron-G4/Sounds/g4-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/Caudron-G4/Models/g4.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic>
+        <int type="int">0</int>
+        <int type="int">0</int>
+        <int type="int">0</int>
+        <int type="int">0</int>
+        <int type="int">0</int>
+        <int type="int">0</int>
+      </generic>
+    </multiplay>
+
+    <help>
+      <title>Caudron G.IV</title>
+      <key>
+        <name>d</name>
+        <desc>Open/Close canopy</desc>
+      </key>
+    </help>
+
+    <menubar include="Dialogs/g4-menu.xml"/>
+
+  </sim>
+
+  <controls>
+    <gear>
+      <brake-parking type="double">1</brake-parking>
+    </gear>
+  </controls>
+
+  <input>
+    <keyboard include="Nasal/g4-keyboard.xml"/>
+  </input>
+ 
+  <nasal>
+    <g4>
+      <file>Aircraft/Caudron-G4/Nasal/doors.nas</file>
+      <file>Aircraft/Caudron-G4/Nasal/immat.nas</file>
+      <file>Aircraft/Caudron-G4/Nasal/liveries.nas</file>
+    </g4>
+  </nasal>
+
+</PropertyList>
+
