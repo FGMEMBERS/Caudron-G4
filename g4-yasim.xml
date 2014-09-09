@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Caudron G.IV - 2009 BARANGER Emmanuel
+
+     Sources      http://en.wikipedia.org/wiki/Caudron_G.4
+
+     Envergure    : 17.20 m   (56 ft  5 in)
+     Longueur     :  7.27 m   (23 ft 10 in)
+     Hauteur      :  2.60 m   ( 8 ft  6 in)
+     Masse        :   733 kg  (    1612 lb)
+     Moteur       : 2 Le Rhone C rotary, (80 hp)
+     Vitesse max  : 124 km/h  (67 kt)
+-->
+
+<airplane mass="1612">
+
+  <!-- Approach configuration -->
+  <approach speed="40" aoa="7" fuel="0.2">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.5"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
+  </approach>
+
+  <!-- Cruise configuration -->
+  <cruise speed="60" alt="0" fuel="0.5">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
+  </cruise>
+
+  <!-- pilot's eyepoint -->
+  <cockpit x="1.429" y="0" z="0.858"/>
+
+  <fuselage ax="3.425" ay="0" az="0.051" bx="0.583" by="0" bz="0.247" width="0.771" taper="0.8" midpoint="0.15"/>
+
+  <!-- upper wing -->
+  <wing x="2.006" y="0" z="1.163"
+        chord="1.584"
+        length="8.492"
+        taper="1"
+        incidence="5"
+        camber="0">
+        <stall aoa="24" width="4" peak="1.5"/>
+        <flap1 start="0.518" end="1.0" lift="1.20" drag="1.35"/>
+
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output  control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+  </wing>
+
+  <!--lower wing -->
+  <mstab x="2.006" y="0" z="-0.433"
+         chord="1.584"
+         length="5.755"
+         incidence="5"
+         taper="1"
+         camber="0">
+         <stall aoa="25" width="4" peak="1.5"/>
+  </mstab>
+
+  <!-- tailplane -->
+  <hstab x="-2.935" y="0" z="-0.096"
+         chord="1.381"
+         length="2.223"
+         taper="1">
+         <stall aoa="22" width="4" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.4" drag="1.5"/>
+
+         <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <!-- tail -->
+  <vstab x="-2.936" y="1.562" z="-0.045"
+         chord="1.063"
+         length="1.4"
+         sweep="20"
+         taper="0.2">
+         <stall aoa="20" width="4" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.3" drag="1.3"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/> 
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+  </vstab>
+
+  <!-- tail -->
+  <vstab x="-2.936" y="0.525" z="-0.045"
+         chord="1.063"
+         length="1.4"
+         sweep="20"
+         taper="0.2">
+         <stall aoa="20" width="4" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.3" drag="1.3"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/> 
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+  </vstab>
+
+  <!-- tail -->
+  <vstab x="-2.936" y="-0.525" z="-0.045"
+         chord="1.063"
+         length="1.4"
+         sweep="20"
+         taper="0.2">
+         <stall aoa="20" width="4" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.3" drag="1.3"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/> 
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+  </vstab>
+
+  <!-- tail -->
+  <vstab x="-2.936" y="-1.562" z="-0.045"
+         chord="1.063"
+         length="1.4"
+         sweep="20"
+         taper="0.2">
+         <stall aoa="20" width="4" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.3" drag="1.3"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/> 
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+  </vstab>
+
+  <!-- Engines   source            : http://pagesperso-orange.fr/aircollection/lerhone.htm
+                                     http://en.wikipedia.org/wiki/Le_Rh%C3%B4ne_9C
+
+                 name              : Rhone 9C
+                 type              : 9-cylinder rotary
+                 power cruise      : 80 hp at 1200 rpm
+                 weight            : 149 kg (330 lb)
+                 Displacement      : 15,074 cc (919.9 cubic inches)
+                 compression       : 5.1
+                 Propeller diameter: 2.4 m (7.87 ft)
+  -->
+  <propeller x="3.305" y="1.562" z="0.231"
+             mass="330"
+             moment="10"
+             radius="1.35"
+             cruise-speed="55"
+             cruise-rpm="1100"
+             cruise-power="75"
+             cruise-alt="0"
+             takeoff-power="80"
+             takeoff-rpm="1200">
+             <actionpt x="3.550" y="1.562" z="0.231"/>
+             <piston-engine eng-power="80"
+                            eng-rpm="1200"
+                            compression="5.1"
+                            displacement="919.9">
+                            <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+                            <control-input axis="/controls/engines/engine[0]/starter" control="STARTER"/>
+                            <control-input axis="/controls/engines/engine[0]/magnetos" control="MAGNETOS"/>
+                            <control-input axis="/controls/engines/engine[0]/mixture" control="MIXTURE"/>
+             </piston-engine>
+  </propeller>
+
+  <propeller x="3.305" y="-1.562" z="0.231"
+             mass="330"
+             moment="10"
+             radius="1.35"
+             cruise-speed="55"
+             cruise-rpm="1100"
+             cruise-power="75"
+             cruise-alt="0"
+             takeoff-power="80"
+             takeoff-rpm="1200">
+             <actionpt x="3.550" y="-1.562" z="0.231"/>
+             <piston-engine eng-power="80"
+                            eng-rpm="1200"
+                            compression="5.1"
+                            displacement="919.9">
+                            <control-input axis="/controls/engines/engine[1]/throttle" control="THROTTLE"/>
+                            <control-input axis="/controls/engines/engine[1]/starter" control="STARTER"/>
+                            <control-input axis="/controls/engines/engine[1]/magnetos" control="MAGNETOS"/>
+                            <control-input axis="/controls/engines/engine[1]/mixture" control="MIXTURE"/>
+             </piston-engine>
+  </propeller>
+
+  <!-- left main -->
+  <gear x="2.728" y="1.583" z="-1.628"
+        compression="0.02"
+        dfric="0.8"
+        sfric="1.0"
+        damp="0.8">
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+  </gear>
+
+  <!-- right main -->
+  <gear x="2.728" y="-1.583" z="-1.628"
+        compression="0.02"
+        dfric="0.8"
+        sfric="1.0"
+        damp="0.8">
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+  </gear>
+
+  <!-- Tail skid left-->
+  <gear x="-2.748" y="1.589" z="-0.703"
+        compression="0.1"
+        castering="0"
+        dfric="0.5"
+        sfric="0.6">
+  </gear>
+
+  <!-- Tail skid right-->
+  <gear x="-2.748" y="-1.589" z="-0.703"
+        compression="0.1"
+        castering="0"
+        dfric="0.5"
+        sfric="0.6">
+  </gear>
+
+  <!-- fuel -->
+  <tank x="2" y="0" z="0" capacity="200"/>
+
+  <!-- CG Theorique : x=1.565 y=0 z=0.127 -->
+  <ballast x="2" y="0" z="-3" mass="500"/>
+
+</airplane>
